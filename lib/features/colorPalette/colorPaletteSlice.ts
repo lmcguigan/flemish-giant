@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { paletteGeneratorApiSlice } from '../paletteGenerator/paletteGeneratorApiSlice'
 import convert from 'color-convert'
 import { savedPalettesSlice } from '../savedColorPalettes/savedColorPalettesSlice'
 
@@ -35,13 +34,6 @@ export const colorPaletteSlice = createSlice({
                 state.name = initialState.name
                 state.colors = initialState.colors
             })
-        builder.addMatcher(paletteGeneratorApiSlice.endpoints.getPalette.matchFulfilled,
-            (state, {payload}) => {
-                const colorsMapped: PaletteColor[] = payload.result.map((colorArray) => ({hex: `#${convert.rgb.hex(colorArray)}`, rgb: colorArray}))
-                console.log('getPalette match fulfilled', state, payload, colorsMapped)
-                state.colors = colorsMapped
-            }
-        )
     },
 })
 

@@ -1,13 +1,11 @@
 import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { colorPaletteSlice } from "./features/colorPalette/colorPaletteSlice";
-import { aicApiSlice } from "./features/aic/aicApiSlice";
-import { paletteGeneratorApiSlice } from "./features/paletteGenerator/paletteGeneratorApiSlice";
 import { savedPalettesSlice } from "./features/savedColorPalettes/savedColorPalettesSlice";
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
-const rootReducer = combineSlices(colorPaletteSlice, aicApiSlice, paletteGeneratorApiSlice, savedPalettesSlice);
+const rootReducer = combineSlices(colorPaletteSlice, savedPalettesSlice);
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>;
 
@@ -18,7 +16,7 @@ export type RootState = ReturnType<typeof rootReducer>;
 export const makeStore = () => {
     return configureStore({
       reducer: rootReducer,
-      middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(aicApiSlice.middleware, paletteGeneratorApiSlice.middleware)
+      middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat()
     });
   };
 
