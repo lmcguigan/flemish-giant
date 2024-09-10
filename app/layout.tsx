@@ -7,7 +7,7 @@ import { NavBar } from "./components/NavBar";
 const inter = Poppins({ subsets: ["latin"], weight: ["100", "200", "400", "700"], display: 'swap' });
 
 export const metadata: Metadata = {
-  title: "Palette Builder",
+  title: "My Painter's Palette",
   description: "Inspired by masterpieces",
 };
 
