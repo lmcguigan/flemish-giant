@@ -9,7 +9,7 @@ export default function SavedPage() {
   const dispatch = useAppDispatch()
   const palettes = useAppSelector((state: RootState) => state.savedColorPalettes.palettes)
   useEffect(() => {
-    console.log(palettes);
+    console.log('Palettes in the Redux store', palettes);
   }, [palettes]);
   const deleteColorPalette = (index: number) => {
     dispatch(deletePalette(index));

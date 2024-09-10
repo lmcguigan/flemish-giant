@@ -18,7 +18,7 @@ export const ColorSelection = ({ data }: Props) => {
     const [pickedColor, setPickedColor] = useState<string | undefined>(undefined)
     const currentPaletteColors = useAppSelector((state: RootState) => state.colorPalette.colors)
     const [pickerOpen, setPickerOpen] = useState<boolean>(false)
-    const { open, close, isSupported } = useEyeDropper()
+    const { open } = useEyeDropper()
     const pickColor = useCallback(() => {
         const openPicker = async () => {
           setPickerOpen(true)
@@ -28,7 +28,6 @@ export const ColorSelection = ({ data }: Props) => {
             setPickerOpen(false)
           } catch (e: any) {
             if (!e.canceled) {
-                console.log('canceled color picker')
                 setPickerOpen(false)
             }
           }
@@ -73,8 +72,7 @@ export const ColorSelection = ({ data }: Props) => {
                         </div>
                     </div>}
                     {<button className={`flex justify-evenly border-2 rounded-xl ${pickerOpen ? 'border-stone-700 text-stone-700' : 'border-stone-600 text-white'}`} disabled={pickerOpen} onClick={pickColor}>
-                            <EyeDropperIcon className="size-6"></EyeDropperIcon>
-                            Eyedropper</button>}
+                        <EyeDropperIcon className="size-6"></EyeDropperIcon>Eyedropper</button>}
             </div>
         </div>
     )

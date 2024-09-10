@@ -38,7 +38,7 @@ export const colorPaletteSlice = createSlice({
         builder.addMatcher(paletteGeneratorApiSlice.endpoints.getPalette.matchFulfilled,
             (state, {payload}) => {
                 const colorsMapped: PaletteColor[] = payload.result.map((colorArray) => ({hex: `#${convert.rgb.hex(colorArray)}`, rgb: colorArray}))
-                console.log('match fulfilled', state, payload, colorsMapped)
+                console.log('getPalette match fulfilled', state, payload, colorsMapped)
                 state.colors = colorsMapped
             }
         )

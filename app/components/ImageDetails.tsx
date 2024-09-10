@@ -11,7 +11,7 @@ export const ImageDetails = ({magnifiedImage}: Props) => {
     return (
         <div className="flex flex-row pb-5 min-h-[60vh]">
             <div className="flex flex-col">
-                <div className="flex max-h-[400px]">
+                <div className="flex max-h-[400px] mb-3">
                     <img src={magnifiedImage.imageUrl} alt={magnifiedImage.title} style={{height: '100%', width: 'auto', objectFit: 'contain'}}/>
                 </div>
                 <h3 className="text-2xl whitespace-pre-wrap"><span className="font-bold">{magnifiedImage.title}</span>, {magnifiedImage.date_display}</h3>

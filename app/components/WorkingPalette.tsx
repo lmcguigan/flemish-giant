@@ -43,7 +43,11 @@ export const WorkingPalette = () => {
                     <span className="uppercase text-xs">Palette Name</span>
                     <input className="w-full text-black border-2 border-rose-500 rounded-md pl-2 py-1" value={paletteName} onChange={(e) => dispatch(rename(e.target.value))}></input>   
                 </div>
-                {result.isLoading ? <Spinner/> : 
+                {result.isLoading ? 
+                <div className="flex items-center justify-center">
+                    <Spinner/> 
+                </div>
+                    : 
                 <>
                     {colors.map((color, index) => {
                         return (
