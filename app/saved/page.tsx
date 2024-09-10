@@ -15,17 +15,18 @@ export default function SavedPage() {
     dispatch(deletePalette(index));
   }
     return (
-        <div className="flex flex-col">
-          <h1>My Saved Palettes</h1>
-          <div className="flex flex-row flex-wrap">
+        <div className="flex flex-col w-full">
+          <h1 className="text-2xl">Saved Palettes</h1>
+          <hr className="my-5"></hr>
+          <div className="flex flex-row flex-wrap gap-5">
           {palettes.map((palette, i) => {
             return (
             <div key={`palette-${i}`} className="flex flex-col justify-between flex-none p-5 w-56 bg-stone-600 space-y-4">
-              <span>{palette.name}</span>
+              <p className="text-xl">{palette.name}</p>
               {palette.colors.map((color, ci) => {
                 return (
                 <div key={`palette-${i}-color-${ci}`} className="flex flex-row justify-between items-center">
-                  <div className="border-1 border-white shadow-md" style={{width: 30, height: 30, backgroundColor: color.hex}}></div>
+                  <div className="border border-white shadow-md" style={{width: 30, height: 30, backgroundColor: color.hex}}></div>
                   <span>{color.hex}</span>
                 </div>)
               })}

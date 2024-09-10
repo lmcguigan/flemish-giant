@@ -32,6 +32,9 @@ export const WorkingPalette = () => {
     const addColorPalette = () => {
         dispatch(addPalette({name: paletteName, colors}))
     }
+    const deleteColorFromPalette = (index: number) => {
+        dispatch(deleteColor(index))
+    }
         return (
             <div className="flex flex-col justify-between flex-none p-5 w-56 bg-stone-600">
                 <div className="space-y-4">
@@ -45,9 +48,9 @@ export const WorkingPalette = () => {
                     {colors.map((color, index) => {
                         return (
                             <div key={`color-${index}`} className="flex flex-row justify-between items-center">
-                                <div className="border-1 border-white shadow-md" style={{width: 30, height: 30, backgroundColor: color.hex}}></div>
+                                <div className="border border-white shadow-md" style={{width: 30, height: 30, backgroundColor: color.hex}}></div>
                                 <span>{color.hex}</span>
-                                <button className="border-2 border-rose-500 rounded-full" onClick={() => deleteColor(index)}>
+                                <button className="border-2 border-rose-500 rounded-full" onClick={() => deleteColorFromPalette(index)}>
                                     <TrashIcon className="size-6"></TrashIcon>
                                 </button>
                             </div>

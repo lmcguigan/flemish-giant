@@ -9,7 +9,7 @@
     stroke-linecap: round;
     stroke-dasharray: 360;
     stroke-width: 6;
-    stroke: blue;
+    stroke: rgb(139, 92, 246);
     fill: transparent;
     animation: spin .6s ease-in-out 0s normal infinite;
 }

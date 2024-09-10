@@ -9,7 +9,7 @@ interface Props {
 
 export const ImageDetails = ({magnifiedImage}: Props) => {
     return (
-        <div className="flex flex-row pb-5">
+        <div className="flex flex-row pb-5 min-h-[60vh]">
             <div className="flex flex-col">
                 <div className="flex max-h-[400px]">
                     <img src={magnifiedImage.imageUrl} alt={magnifiedImage.title} style={{height: '100%', width: 'auto', objectFit: 'contain'}}/>

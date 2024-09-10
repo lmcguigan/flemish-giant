@@ -23,7 +23,7 @@ export const colorPaletteSlice = createSlice({
             state.colors.push(action.payload)
         }),
         deleteColor: create.reducer<number>((state, action) => {
-            state.colors.slice(action.payload, 1)
+            state.colors.splice(action.payload, 1)
         }),
         rename: create.reducer<string>((state, action) => {
             state.name = action.payload

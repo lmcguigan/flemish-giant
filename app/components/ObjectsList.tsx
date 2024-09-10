@@ -22,15 +22,15 @@ export const ObjectsList = () => {
     }, [data])
     if(isError){
         return (
-            <div className="flex flex-1 flex-col md:pr-5">
-                <h1>There was an error!!!</h1>
+            <div className="flex flex-1 flex-col md:pr-5 items-center justify-center min-w-[75vw] min-h-[60vh]">
+                <h1 className="text-2xl">There was an error loading the artworks. Please try again later. </h1>
             </div>
         );
     }
     if (isLoading) {
         return (
-          <div className="flex flex-1 flex-col md:pr-5">
-            <h1>Loading artworks...</h1>
+          <div className="flex flex-1 flex-col md:pr-5 items-center justify-center min-w-[75vw] min-h-[60vh]">
+            <h1 className="text-2xl mb-6">Loading artworks...</h1>
             <Spinner/>
           </div>
         );
@@ -38,7 +38,7 @@ export const ObjectsList = () => {
     
     if (isSuccess) {
         return (
-            <div className="flex flex-col md:pr-5">
+            <div className="flex flex-col md:pr-5 min-w-[75vw]">
                 {magnifiedImage && <ImageDetails magnifiedImage={magnifiedImage}/>}
                 <div className="flex gap-2">
                 {dateRanges.map((e, i) => {
@@ -64,7 +64,7 @@ export const ObjectsList = () => {
                         )
                     })}
                 </div>
-            <span>Artwork data and images provided by the <a href="https://www.artic.edu/open-access/public-api">Art Institute of Chicago's Open Access Public API.</a></span>
+            <span>Artwork data and images provided by the <a className="text-rose-500 underline" href="https://www.artic.edu/open-access/public-api">Art Institute of Chicago's Open Access Public API.</a></span>
             <span className="text-xs">This project is not affiliated with the Art Institute of Chicago.</span>
             </div>
         );

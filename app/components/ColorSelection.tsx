@@ -56,25 +56,25 @@ export const ColorSelection = ({ data }: Props) => {
             <div className="border-2 border-stone-600 flex w-72 h-full flex-col p-5 justify-between">
                     <div>
                         <h4 className="text-lg">Pick colors from this artwork</h4>   
-                        <hr></hr>
+                        <hr className="mt-2 mb-5"></hr>
                         <p>Dominant Object Color</p>
-                        <span className="text-xs">{"(per AIC API data)"}</span>
+                        <p className="text-xs mb-3">{"(provided by AIC API data)"}</p>
                         {data.colorHex && <div className="flex flex-row justify-between items-center">
-                            <div className="size-16" style={{backgroundColor: data.colorHex}} />
+                            <div className="size-16 border border-white" style={{backgroundColor: data.colorHex}} />
                             <button className={`border-2 rounded-xl ${isButtonDisabled(data.colorHex) ? 'border-stone-700 text-stone-700' : 'border-stone-600 text-white'}`} disabled={isButtonDisabled(data.colorHex)} onClick={() => addDominantColorToPalette(data.colorHex!)}>Add to palette</button>
                         </div>}
                     </div>
                     {pickedColor && 
                     <div>
-                        <span>Selected color preview</span>
+                        <p className="mb-3">Selected color preview</p>
                         <div className="flex flex-row justify-between items-center">
-                            <div className="size-16" style={{backgroundColor: pickedColor}}></div>
-                            <button className="border-2 rounded-xl border-stone-600" disabled={isButtonDisabled(pickedColor)} onClick={addSelectedColorToPalette}>Add to palette</button>
+                            <div className="size-16 border border-white" style={{backgroundColor: pickedColor}}></div>
+                            <button className={`border-2 rounded-xl ${isButtonDisabled(pickedColor) ? 'border-stone-700 text-stone-700' : 'border-stone-600 text-white'}`} disabled={isButtonDisabled(pickedColor)} onClick={addSelectedColorToPalette}>Add to palette</button>
                         </div>
                     </div>}
-                    {!pickerOpen && <button className="flex justify-evenly border-2 rounded-xl border-stone-600" onClick={pickColor}>
+                    {<button className={`flex justify-evenly border-2 rounded-xl ${pickerOpen ? 'border-stone-700 text-stone-700' : 'border-stone-600 text-white'}`} disabled={pickerOpen} onClick={pickColor}>
                             <EyeDropperIcon className="size-6"></EyeDropperIcon>
-                            Open eyedropper</button>}
+                            Eyedropper</button>}
             </div>
         </div>
     )

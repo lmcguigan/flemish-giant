@@ -13,7 +13,7 @@ export const savedPalettesSlice = createSlice({
             state.palettes.push(action.payload)
         }),
         deletePalette: create.reducer<number>((state, action) => {
-            state.palettes.slice(action.payload, 1)
+            state.palettes.splice(action.payload, 1)
         }),
     })
 })
