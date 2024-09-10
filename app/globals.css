@@ -31,3 +31,9 @@ body {
     text-wrap: balance;
   }
 }
+
+button {
+  transition: all 0.15s;
+  cursor: pointer;
+  padding: 10px
+}
